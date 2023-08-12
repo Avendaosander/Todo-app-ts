@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { type TodoTypeCompleted, type TodoID, type FilterValue } from './type'
+import { type TodoTypeCompleted, type TodoID, type FilterValue, type TodoTitle } from './type'
 import { Todos } from './components/Todos'
 import { Footer } from './components/Footer'
 import { TODO_FILTERS } from './consts'
+import { Header } from './components/Header'
 
 const mockTodo = [
 	{
@@ -69,6 +70,17 @@ const App = (): JSX.Element => {
 		return todo
 	})
 
+	const addTodo = ({ title }: TodoTitle) => {
+		const newTodo = {
+			id: crypto.randomUUID(),
+			title,
+			completed: false
+		}
+		
+		const newTodos = [...todos, newTodo]
+		setTodos(newTodos)
+	}
+
 	return (
 		<>
 			<main className='h-screen flex flex-col items-center p-20'>
@@ -79,6 +91,7 @@ const App = (): JSX.Element => {
 					</span>
 				</h1>
 				<section className='w-3/5 ring-1 ring-slate-300 rounded-lg shadow-2xl shadow-slate-300'>
+					<Header addTodo={addTodo}/>
 					<Todos
 						todos={filteredTodos}
 						toggleCompleted={handleCompleted}
