@@ -4,32 +4,10 @@ import { Todos } from './components/Todos'
 import { Footer } from './components/Footer'
 import { TODO_FILTERS } from './consts'
 import { Header } from './components/Header'
-
-const mockTodo = [
-	{
-		id: '1',
-		title: 'Aprender las bases de React',
-		completed: true
-	},
-	{
-		id: '2',
-		title: 'Aprender las bases de JavaScript',
-		completed: true
-	},
-	{
-		id: '3',
-		title: 'Aprender las bases de TypeScript',
-		completed: false
-	},
-	{
-		id: '4',
-		title: 'Crear app con React y TypeScript',
-		completed: false
-	}
-]
+import { mockTodos } from './mocks/mockTodo'
 
 const App = (): JSX.Element => {
-	const [todos, setTodos] = useState(mockTodo)
+	const [todos, setTodos] = useState(mockTodos)
 	const [filterSelected, setFilterSelected] = useState<FilterValue>(TODO_FILTERS.ALL)
 
 	const activeCount = todos.filter(todo => !todo.completed).length
