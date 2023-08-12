@@ -1,18 +1,32 @@
-import { type ListOfTodos } from '../type'
+import { FilterValue } from '../type'
+import { Filters } from './Filters'
 
 interface Props {
-	todos: ListOfTodos
+	activeCount: number
+	completedCount: number
+	filterSelected: FilterValue
+	filterChange: (filter: FilterValue) => void
 	clearCompleted: () => void
 }
 
-export const Footer: React.FC<Props> = ({ todos, clearCompleted }) => {
+export const Footer: React.FC<Props> = ({
+	activeCount,
+	completedCount,
+	filterSelected,
+	filterChange,
+	clearCompleted
+}) => {
 	return (
 		<footer className='flex justify-between items-center px-5 py-2'>
-			<p>{todos.length} tareas pendientes</p>
+			<p>{activeCount} tareas pendientes</p>
 
-
+			<Filters
+				filterSelected={filterSelected}
+				filterChange={filterChange}
+			/>
 
 			<button
+				className={`${completedCount === 0 ? 'invisible' : 'visible'} px-2 rounded hover:ring-1 hover:ring-slate-500`}
 				onClick={() => {
 					clearCompleted()
 				}}
