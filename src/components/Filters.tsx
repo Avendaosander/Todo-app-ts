@@ -13,7 +13,7 @@ export const Filters: React.FC<Props> = ({ filterSelected, filterChange }) => {
             return (
                <li key={key}>
                   <button
-                     className={`${filterSelected === key ? 'ring-1 ring-slate-500 bg-slate-200' : ''} px-2 rounded hover:ring-1 hover:ring-slate-500 `}
+                     className={`${filterSelected === key ? 'ring-1 ring-slate-500 dark:ring-slate-500/30 bg-slate-200 dark:bg-slate-700' : ''} px-2 rounded hover:ring-1 hover:ring-slate-500`}
                      onClick={() => {
                         filterChange(key as FilterValue)
                      }}

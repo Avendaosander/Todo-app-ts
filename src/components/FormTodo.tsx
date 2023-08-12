@@ -23,7 +23,7 @@ export const FormTodo: React.FC<Props> = ({ saveTodo }) => {
             onChange={e => {setInputValue(e.target.value)}}
             autoFocus
             placeholder='¿Qué quieres hacer?'
-            className='w-full px-12 py-2 rounded-t-lg italic bg-inherit border-b border-slate-300/50 outline-none focus:ring-1 focus:ring-slate-500'
+            className='w-full text-xl px-[60px] py-3 rounded-t-lg italic bg-inherit border-b border-slate-300/50 dark:border-slate-500/30 outline-none focus:ring-1 focus:ring-slate-500'
          />
       </form>
 	)

@@ -5,6 +5,7 @@ import { Footer } from './components/Footer'
 import { TODO_FILTERS } from './consts'
 import { Header } from './components/Header'
 import { mockTodos } from './mocks/mockTodo'
+import { Copyright } from './components/Copyright'
 
 const App = (): JSX.Element => {
 	const [todos, setTodos] = useState(mockTodos)
@@ -61,14 +62,14 @@ const App = (): JSX.Element => {
 
 	return (
 		<>
-			<main className='h-screen flex flex-col items-center p-20'>
-				<h1 className='text-center font-light text-5xl mb-5'>
-					Todo App
-					<span className='text-sky-50 bg-sky-600 font-bold text-2xl pt-3 pl-3 pr-1 rounded ml-1'>
+			<main className='relative h-screen flex flex-col items-center p-20'>
+				<h1 className='text-center text-6xl mb-5'>
+					Todo
+					<span className='text-sky-50 bg-sky-600 font-bold text-3xl pt-3 pl-3 pr-1 rounded-md ml-1'>
 						TS
 					</span>
 				</h1>
-				<section className='w-3/5 ring-1 ring-slate-300 rounded-lg shadow-2xl shadow-slate-300'>
+				<section className='sm:w-[600px] bg-slate-50 dark:bg-slate-800 ring-1 ring-slate-300 dark:ring-slate-500/30 rounded-lg shadow-section-light dark:shadow-section-dark'>
 					<Header addTodo={addTodo}/>
 					<Todos
 						todos={filteredTodos}
@@ -83,6 +84,7 @@ const App = (): JSX.Element => {
 						clearCompleted={removeAllCompleted}
 					/>
 				</section>
+				<Copyright/>
 			</main>
 		</>
 	)

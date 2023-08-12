@@ -26,7 +26,7 @@ export const Footer: React.FC<Props> = ({
 			/>
 
 			<button
-				className={`${completedCount === 0 ? 'invisible' : 'visible'} px-2 rounded hover:ring-1 hover:ring-slate-500`}
+				className={`${completedCount === 0 ? 'invisible' : 'visible'} px-2 rounded hover:text-red-500`}
 				onClick={() => {
 					clearCompleted()
 				}}
